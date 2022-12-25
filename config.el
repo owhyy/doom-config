@@ -24,7 +24,15 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-homage-black)
+(setq doom-theme 'modus-operandi)
+(setq doom-font "3270Narrow NF-14")
+
+(setq modus-themes-italic-constructs t
+modus-themes-bold-constructs nil
+modus-themes-region '(bg-only no-extend))
+
+;; Load the theme files before enabling a theme
+
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
@@ -32,7 +40,7 @@
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
-(setq display-line-numbers-type t)
+(setq display-line-numbers-type 'relative)
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
@@ -51,31 +59,12 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
-
-(setq org-roam-directory "~/Documents/org/nodes/")
 (add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
-(use-package org-roam
-  :ensure t
-  :bind (("C-c n l" . org-roam-buffer-toggle)
-         ("C-c n f" . org-roam-node-find)
-         ("C-c n i" . org-roam-node-insert))
-  :config
-  (org-roam-setup))
-
 (setq org-journal-dir "~/Documents/org/journal")
-(setq org-agenda-files '("/home/snooze/Documents/org/todos/weekly.org" "/home/snooze/Documents/org/todos/daily.org" "/home/snooze/Documents/org/schedule.org" "/home/snooze/Documents/org/things_idk.org" "/home/snooze/Documents/org/journal/20220224"))
+(setq org-agenda-files '("~/org/work/work.org"))
 
 ;; Show the daily agenda by default.
 (setq org-agenda-span 'day)
-
-;; Hide tasks that are scheduled in the future.
-(setq org-agenda-todo-ignore-scheduled 'future)
-(setq org-agenda-skip-deadline-prewarning-if-scheduled t)
-(setq org-agenda-skip-deadline-if-done t)
-(setq org-agenda-skip-scheduled-if-done t)
-(setq org-agenda-todo-ignore-with-date t)
-(setq org-agenda-skip-timestamp-if-done t)
-(setq org-agenda-ndays 1)
 
 ;; Use "second" instead of "day" for time comparison.
 ;; It hides tasks with a scheduled time like "<2020-11-15 Sun 11:30>"
@@ -102,3 +91,4 @@
 (require 'org-roam-ui)
 (require 'sml-mode)
 (require 'org-superstar)
+(require 'modus-themes)

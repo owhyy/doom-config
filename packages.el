@@ -49,8 +49,6 @@
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;(unpin! t)
 
-(package! org-journal)
-(package! org-roam)
-(package! org-roam-ui)
 (package! sml-mode)
 (package! org-superstar)
+(package! modus-themes)
